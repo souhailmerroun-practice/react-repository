@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-interface Countdown {
+interface Stopwatch {
   days: number
   hours: number
   minutes: number
@@ -11,10 +11,9 @@ interface Countdown {
 
 function App() {
 
-  const countDownDate = new Date("May 23, 2022 15:37:25").getTime();
-  const now = new Date().getTime(); // Get today's date and time
+  const [time, setTime] = useState(50000); //50000 miliseconds = 50 seconds
 
-  const [countdown, setCountdown] = useState<Countdown>({
+  const [countdown, setCountdown] = useState<Stopwatch>({
     days: 0,
     hours: 0,
     minutes: 0,
@@ -22,16 +21,15 @@ function App() {
   });
 
   useEffect(() => {
+    console.log(time);
     const interval = setInterval(() => {
 
-      // Find the distance between now and the count down date
-      const distance = countDownDate - now;
+      setTime(time + 1000);
 
-      // Time calculations for days, hours, minutes and seconds
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(time / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((time % (1000 * 60)) / 1000)
 
       setCountdown({
         days,
