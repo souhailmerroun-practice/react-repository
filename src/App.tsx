@@ -21,7 +21,6 @@ function App() {
   });
 
   useEffect(() => {
-    console.log(time);
     const interval = setInterval(() => {
 
       setTime(time + 1000);
