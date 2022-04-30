@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
+import * as Sentry from "@sentry/react";
 
 function App() {
   return (
@@ -20,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default Sentry.withProfiler(App);
