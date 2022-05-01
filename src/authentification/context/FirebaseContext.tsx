@@ -41,12 +41,14 @@ interface Props {
 
 export const FirebaseContextProvider: FC<Props> = ({ children }) => {
 
+    const [loading, setLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState<User | null>(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             // @ts-ignore
             setCurrentUser(currentUser)
+            setLoading(false);
         });
 
         return () => {
@@ -56,7 +58,7 @@ export const FirebaseContextProvider: FC<Props> = ({ children }) => {
 
     return (
         <FirebaseContext.Provider value={{ currentUser, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }}>
-            {children}
+            {loading ? <p>Loading...</p> : children}
         </FirebaseContext.Provider>
     );
 }
