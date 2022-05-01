@@ -6,7 +6,6 @@ import {
     signInWithEmailAndPassword as firebaseSignInWithEmailAndPassword,
     signOut as firebaseSignOut,
     UserCredential,
-    Auth,
 } from 'firebase/auth';
 import { auth } from '../config/firebase';
 

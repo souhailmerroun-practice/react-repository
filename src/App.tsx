@@ -5,6 +5,7 @@ import Login from './authentification/pages/Login';
 import Profile from './authentification/pages/Profile';
 import Register from './authentification/pages/Register';
 import * as Sentry from "@sentry/react";
+import ProtectedRoute from './authentification/ProtectedRoute';
 
 export const ROUTE_HOME = "/";
 export const ROUTE_LOGIN = "/login";
@@ -20,7 +21,11 @@ function App() {
         <Route path={ROUTE_HOME} element={<Home />} />
         <Route path={ROUTE_LOGIN} element={<Login />} />
         <Route path={ROUTE_REGISTER} element={<Register />} />
-        <Route path={ROUTE_PROFILE} element={<Profile />} />
+        <Route path={ROUTE_PROFILE} element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        } />
       </Routes>
     </div>
   );
