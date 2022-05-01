@@ -23,7 +23,7 @@ function App() {
 
       <Routes>
         <Route path={ROUTE_HOME} element={<Home />} />
-        <Route path={ROUTE_LOGIN} element={currentUser ? <Navigate to={ROUTE_PROFILE} /> : <Register />} />
+        <Route path={ROUTE_LOGIN} element={currentUser ? <Navigate to={ROUTE_PROFILE} /> : <Login />} />
         <Route path={ROUTE_REGISTER} element={currentUser ? <Navigate to={ROUTE_PROFILE} /> : <Register />} />
         <Route path={ROUTE_PROFILE} element={currentUser ? <Profile /> : <Navigate to={ROUTE_LOGIN} />} />
       </Routes>
