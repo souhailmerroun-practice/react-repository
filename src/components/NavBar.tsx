@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FirebaseContext } from "../context/FirebaseContext";
+import { FirebaseContext } from "../authentification/context/FirebaseContext";
 
 function NavBar() {
     const { currentUser, signOut } = useContext(FirebaseContext);

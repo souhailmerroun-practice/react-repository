@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
-import { FirebaseContextProvider } from './context/FirebaseContext';
+import { FirebaseContextProvider } from './authentification/context/FirebaseContext';
 
 Sentry.init({
   dsn: "https://b35e54fe1c054f1ca3ddce8af553cf2c@o1226992.ingest.sentry.io/6372585",

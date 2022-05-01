@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Profile from './pages/Profile';
-import Register from './pages/Register';
+import Login from './authentification/pages/Login';
+import Profile from './authentification/pages/Profile';
+import Register from './authentification/pages/Register';
 import * as Sentry from "@sentry/react";
 
 function App() {
