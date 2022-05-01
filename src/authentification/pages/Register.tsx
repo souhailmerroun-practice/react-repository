@@ -1,18 +1,23 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_HOME } from "../../App";
 import { FirebaseContext } from "../context/FirebaseContext";
 
 function Register() {
+
+    const navigate = useNavigate();
 
     const { createUserWithEmailAndPassword } = useContext(FirebaseContext);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            createUserWithEmailAndPassword(email, password);
+            await createUserWithEmailAndPassword(email, password);
+            navigate(ROUTE_HOME);
         }
         catch (error) {
             console.log(error)

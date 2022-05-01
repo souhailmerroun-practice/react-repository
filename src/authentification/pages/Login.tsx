@@ -1,18 +1,23 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_HOME } from "../../App";
 import { FirebaseContext } from "../context/FirebaseContext";
 
 function Login() {
+
+    const navigate = useNavigate();
 
     const { signInWithEmailAndPassword } = useContext(FirebaseContext);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            signInWithEmailAndPassword(email, password)
+            await signInWithEmailAndPassword(email, password)
+            navigate(ROUTE_HOME);
         }
         catch (error) {
             console.log(error)

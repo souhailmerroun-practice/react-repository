@@ -1,12 +1,17 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ROUTE_LOGIN } from "../App";
 import { FirebaseContext } from "../authentification/context/FirebaseContext";
 
 function NavBar() {
+
+    const navigate = useNavigate();
+
     const { currentUser, signOut } = useContext(FirebaseContext);
 
-    const handleLogout = () => {
-        signOut();
+    const handleLogout = async () => {
+        await signOut();
+        navigate(ROUTE_LOGIN);
     }
 
     return <>
