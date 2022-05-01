@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FirebaseContext } from "../context/FirebaseContext";
 
 function Login() {
+
+    const { signInWithEmailAndPassword } = useContext(FirebaseContext);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('handleSubmit')
+
+        try {
+            signInWithEmailAndPassword(email, password)
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     return (
