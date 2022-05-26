@@ -28,6 +28,10 @@ source: [docker node container](https://github.com/souhailmerroun-practice/Docke
 
 ### development
 
+https://github.com/souhailmerroun-practice/react-repository/blob/523ca7331431eebedb0fa8e658f9a902bd231563/package.json#L19-L24
+
 ```
-npm start
+npm run start
+npm run test
+npm run build
 ```
